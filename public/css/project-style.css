@@ -1,0 +1,149 @@
+
+/*--- customized grids code ---*/
+
+
+.subtitle{
+    text-align:center;
+}
+
+.trow {
+	padding-bottom:30px;
+	padding-left:0;
+	padding-right:0;
+	
+
+}
+
+.trow p{
+	margin-top:15px;
+	font-family: Helvetica;
+}
+
+.trow h3{
+	margin-top:30px;
+	font-family: open sans;
+	
+}
+
+
+/*--- grids code ---*/
+
+/*--- body code ---*/
+.container-fluid {
+	padding-left:12%;
+	padding-right:12%;
+	background-color: #F4F4F4;
+}
+.container-fluid h3{
+font-family: Oriya MN;
+color: #5AB14B;
+}
+
+.interval {
+	background-color: white;
+} 
+
+.WDTC span{
+	color: #D99398;
+	font-size: 18px;
+}
+
+.ptitle{
+    text-align:center;
+    font-size:16px}
+
+.text-center{
+    text-align:center;
+    color:#8C8C8C;
+	padding: 25px 0 25px;   
+}
+
+.fabby h3{
+    color:#D59E30;
+}
+
+.fabby span{
+    color:#D59E30;  
+}
+
+.SR h3{
+    color:#297587;
+}
+
+.SR span{
+    color:#297587;
+}
+.GD h3{
+     color:#C64060;
+}
+
+.GD span{
+    color:#C64060;
+}
+
+.IN h3{
+    color:#3469B7;
+}
+
+.W-web span{
+    color: #5AB14B;
+}
+
+.NS h3{
+    color:#4673B1;
+    
+}
+
+.NS span{
+    color:#4673B1;
+}
+
+img.center{
+     display: block;
+    margin: auto;  
+}
+
+.element {
+  position: fixed;
+    text-align:right;
+  bottom: 10px;
+  right: 10px;
+    width: 30%;
+}
+
+.glyphicon {
+    font-size: 2.6em;
+}
+
+.CV-sub{
+    font-size:1.5em;
+    font-family: Oriya MN;
+}
+
+.CV h3{
+	font-family: open sans;
+    color:#991C00;   
+}
+.CV h4{
+    margin-bottom:1%;
+}
+
+.CV h5{
+    margin-bottom:1%;
+   
+}
+.CV p{
+    width:95%;
+}
+
+
+.line{
+    margin-top:2%;
+    margin-bottom:2%;
+    
+}
+
+.btn{
+    background-color: brown;
+}
+
