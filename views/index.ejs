@@ -14,6 +14,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="css/ui-dialog.css" media="all"/>
   <link href="css/cobox.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/showLoading.css"/>
   <link href="css/portfolio.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
 
@@ -32,6 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<div id="loading"></div>
+
 <div class="navbar-wrapper">
   <div class="container">
 
@@ -419,22 +423,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="row">
         <div class="col-md-6 slideanim">
           <div class="contact-details">
-            <form action="/sendMail" method="post">
+            <div>
               <div class="row">
                 <div class="col-sm-12 form-group">
-                  <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                  <input class="form-control" id="commenter-name" name="name" placeholder="Name" type="text" required>
                 </div>
                 <div class="col-sm-12 form-group">
-                  <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                  <input class="form-control" id="commenter-email" name="email" placeholder="Email" type="email" required>
                 </div>
               </div>
-              <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+              <textarea class="form-control" id="commenter-comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
               <div class="row">
                 <div class="col-sm-12 form-group">
-                  <button class="btn btn-default btn-lg" type="submit">Send <span class="glyphicon glyphicon-menu-right"></span></button>
+                  <button id="sendMail" class="btn btn-default btn-lg" type="button">Send <span class="glyphicon glyphicon-menu-right"></span></button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
         <div class="col-md-6 slideanim">
@@ -474,7 +478,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js files -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<scirpt src="js/dialog-min.js"></scirpt>
+<script src="js/dialog-min.js"></script>
+<script src="js/showLoading.js"></script>
 <!-- js files for banner slider -->
 <script src="js/responsiveslides.min.js"></script>
 <script>
@@ -522,6 +527,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         window.location.hash = hash;
       });
     });
+
+    $('#sendMail').on('click', function() {
+      var dataParamsStr = 'name='+ $('#commenter-name').val()+'&email='+$('#commenter-email').val()+'&comments='+$('#commenter-comments').val();
+      $('#loading').showLoading();
+      $.ajax({
+        url: '/sendMail',
+        type: 'post',
+        data: dataParamsStr,
+        success: function(result) {
+          $('#loading').hideLoading();
+          if (result.data==0) {
+            dialog({
+              title: 'Info',
+              content: 'Failure!'
+            }).width(320).show();
+          } else {
+            dialog({
+              title: 'Info',
+              content: 'Successful!'
+            }).width(320).show();
+          }
+        }
+      })
+    })
   })
 
 </script>
